@@ -64,7 +64,6 @@ import { usePage } from '@inertiajs/vue3';
 
 const { order, diningTables, menuItems } = usePage().props.value;
 
-// Tạo form, pre-fill với dữ liệu order
 const form = reactive({
   dining_table_id: order.dining_table.id,
   items: order.order_items.map(item => ({
@@ -73,17 +72,16 @@ const form = reactive({
   })),
 });
 
-// Thêm item
+
 const addItem = () => {
   form.items.push({ menu_item_id: '', quantity: 1 });
 };
 
-// Xóa item
+
 const removeItem = (index) => {
   form.items.splice(index, 1);
 };
 
-// Submit -> gọi OrderController@update
 const submitForm = () => {
   Inertia.put(`/orders/${order.id}`, form);
 };

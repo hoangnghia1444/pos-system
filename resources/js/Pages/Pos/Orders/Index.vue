@@ -2,17 +2,17 @@
 import { Link, usePage } from '@inertiajs/vue3';
 import { Inertia } from '@inertiajs/inertia';
 
-const props = usePage().props.value || {}; // Giá trị mặc định cho props
-const orders = props.orders || { data: [], prev_page_url: null, next_page_url: null }; // Giá trị mặc định cho orders
+const props = usePage().props.value || {}; 
+const orders = props.orders || { data: [], prev_page_url: null, next_page_url: null }; 
 
-console.log('Orders:', orders); // Kiểm tra dữ liệu orders
+console.log('Orders:', orders); 
 
-// Điều hướng phân trang
+
 const goToPage = (url) => {
   if (url) Inertia.get(url);  
 };
 
-// Hàm xóa đơn hàng
+
 const deleteOrder = (orderId) => {
   if (confirm("Are you sure you want to delete this order?")) {
     Inertia.delete(`/orders/${orderId}`);
@@ -37,7 +37,7 @@ const deleteOrder = (orderId) => {
         <tr v-for="order in orders.data" :key="order.id">
           <td class="border px-4 py-2">{{ order.id }}</td>
           <td class="border px-4 py-2">
-            <!-- Kiểm tra null trước khi hiển thị table_number -->
+
             <span v-if="order.dining_table">
               {{ order.dining_table.table_number }}
             </span>
@@ -55,7 +55,6 @@ const deleteOrder = (orderId) => {
       </tbody>
     </table>
 
-    <!-- Pagination Controls -->
     <div class="mt-4 flex justify-between">
       <button
         v-if="orders.prev_page_url"

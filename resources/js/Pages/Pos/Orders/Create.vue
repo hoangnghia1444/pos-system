@@ -3,12 +3,12 @@
 import { ref } from 'vue';
 import { usePage, useForm } from '@inertiajs/vue3';
 
-const props = usePage().props.value || {}; // Giá trị mặc định cho props
-const diningTables = ref(props.diningTables || []); // Giá trị mặc định cho diningTables
-const menuItems = ref(props.menuItems || []); // Giá trị mặc định cho menuItems
+const props = usePage().props.value || {}; 
+const diningTables = ref(props.diningTables || []); 
+const menuItems = ref(props.menuItems || []); 
 
-console.log('Dining Tables:', diningTables.value); // Kiểm tra dữ liệu diningTables
-console.log('Menu Items:', menuItems.value); // Kiểm tra dữ liệu menuItems
+console.log('Dining Tables:', diningTables.value); 
+console.log('Menu Items:', menuItems.value); 
 
 const form = useForm({
   dining_table_id: '',
@@ -41,7 +41,6 @@ const handleSubmit = () => {
   <div class="container mx-auto p-4">
     <h1 class="text-2xl font-bold mb-4">Create Order</h1>
     
-    <!-- Debug info -->
     <div class="mb-4 p-2 bg-gray-100" v-if="!diningTables.length || !menuItems.length">
       <p class="text-red-500">Warning: No data loaded</p>
       <p v-if="!diningTables.length">No dining tables available</p>

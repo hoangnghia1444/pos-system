@@ -1,5 +1,5 @@
 <?php
-// filepath: c:\Users\ADMIN\pos-system\app\Http\Controllers\OrderController.php
+
 
 namespace App\Http\Controllers;
 
